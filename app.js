@@ -11,7 +11,7 @@ app.post('/temp', (req, res) => {
     arrData.length !== 4 ||
     isNaN(parseInt(arrData[0])) ||
     isNaN(parseInt(arrData[1])) ||
-    !(typeof arrData[2] === 'string') ||
+    !(typeof arrData[2] === ‘string’ && arrData[2] === “‘Temperature’” && arrData[2].startsWith(“‘”) && arrData[2].endsWith(“‘”)) ||
     isNaN(parseFloat(arrData[3])) ||
     !(parseFloat(arrData[3]) % 1 !== 0)
   ) {
