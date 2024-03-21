@@ -18,7 +18,7 @@ app.post('/temp', (req, res) => {
     tempData.push(requestBody.data);
     return res.status(400).json({status: 400, message: "Bad Request"});
   }
-  if (parseFloat(arrData[3]) > 90) {
+  if (parseFloat(arrData[3]) <= 90) {
      res.send({ overtemp: 'false' });
   } else {
     const timedate = new Date(arrData[1] * 1000);
