@@ -21,7 +21,7 @@ app.post('/temp', (req, res) => {
   if (parseFloat(arrData[3]) <= 90) {
      res.send({ overtemp: 'false' });
   } else {
-    const timedate = new Date(arrData[1] * 1000);
+    const timedate = new Date(parseInt(arrData[1]));
     const fixedTime =
       timedate.getUTCFullYear() +
       '-' +
@@ -33,9 +33,7 @@ app.post('/temp', (req, res) => {
       ':' +
       ('0' + timedate.getUTCMinutes()).slice(-2) +
       ':' +
-      ('0' + timedate.getUTCSeconds()).slice(-2) +
-      '.' +
-      (timedate.getUTCMilliseconds() / 1000).toFixed(3).slice(2, 5);
+      ('0' + timedate.getUTCSeconds()).slice(-2) 
     const body = {
       overtemp: true,
       device_id: arrData[0],
