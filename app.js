@@ -41,8 +41,9 @@ app.post('/temp', (req, res) => {
       device_id: arrData[0],
       formatted_time: fixedTime,
     }
+    res.send(body);
   }
-  res.send(body);
+  
 });
 
 app.get('/error', (req, res) =>{
