@@ -15,7 +15,7 @@ app.post('/temp', (req, res) => {
     isNaN(parseFloat(arrData[3])) ||
     !(parseFloat(arrData[3]) % 1 !== 0)
   ) {
-    tempData.push(arrData);
+    tempData.push(requestBody.data);
     return res.status(400).json({status: 400, message: "Bad Request"});
   }
   if (parseFloat(arrData[3]) > 90) {
