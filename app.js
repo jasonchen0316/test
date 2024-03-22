@@ -13,7 +13,7 @@ app.post('/temp', (req, res) => {
     isNaN(Number(arrData[1])) || arrData[1].includes(".")||
     arrData[2] !== "'Temperature'" || !(arrData[2].startsWith("'")) && !(arrData[2].endsWith("'")) ||
     isNaN(Number(arrData[3])) ||
-    !(arrData[3].includes("."))
+    !(arrData[3].includes("."))         //force float check. If pass in int, will be bad format. Java script is not a strongly typed language so we have to do extra steps.
   ) {
     tempData.push(requestBody.data);
     return res.status(400).json({"error": "Bad Request"});
