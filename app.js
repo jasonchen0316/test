@@ -16,7 +16,7 @@ app.post('/temp', (req, res) => {
     !(arrData[3].includes("."))
   ) {
     tempData.push(requestBody.data);
-    return res.status(400).json({status: 400, message: "Bad Request"});
+    return res.status(400).json({"error": "Bad Request"});
   }
   if (parseFloat(arrData[3]) <= 90) {
      res.send({ overtemp: 'false' });
