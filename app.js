@@ -49,7 +49,7 @@ app.get('/errors', (req, res) =>{
   res.send(formattedData)
 });
 
-app.delete('/error', (req,res) =>{
+app.delete('/errors', (req,res) =>{
   tempData = [];
   res.send("Buffer has been deleted")
 });
