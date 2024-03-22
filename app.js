@@ -9,11 +9,11 @@ app.post('/temp', (req, res) => {
   const arrData = requestBody.data.split(':');
   if (
     arrData.length !== 4 ||
-    isNaN(parseInt(arrData[0])) ||
-    isNaN(parseInt(arrData[1])) ||
-    !(typeof arrData[2] === 'string' && arrData[2] === "'Temperature'" && arrData[2].startsWith("'") && arrData[2].endsWith("'")) ||
-    isNaN(parseFloat(arrData[3])) ||
-    !(parseFloat(arrData[3]) % 1 !== 0)
+    isNaN(Number(arrData[0])) || arrData[0].includes(".")||
+    isNaN(Number(arrData[1])) || arrData[1].includes(".")||
+    arrData[2] !== "'Temperature'" || !(arrData[2].startsWith("'")) && !(arrData[2].endsWith("'")) ||
+    isNaN(Number(arrData[3])) ||
+    !(arrData[3].includes("."))
   ) {
     tempData.push(requestBody.data);
     return res.status(400).json({status: 400, message: "Bad Request"});
