@@ -44,7 +44,7 @@ app.post('/temp', (req, res) => {
   
 });
 
-app.get('/error', (req, res) =>{
+app.get('/errors', (req, res) =>{
   const formattedData = {errors: tempData}
   res.send(formattedData)
 });
